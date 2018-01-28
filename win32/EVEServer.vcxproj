@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{7EBEC2E7-7322-475E-B76C-769397DD23BB}</ProjectGuid>
+    <RootNamespace>EVEServer</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="xmlpkt.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27130.2020</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\mysql\include;..\common;C:\zlib-1.2.3;.;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0400;_NDEBUG;_DEBUG;USE_RUNTIME_EXCEPTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4355;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wsock32.lib;zlib.lib;mysqlclient.lib;Advapi32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\mysql\lib\debug;C:\zlib-1.2.3\projects\visualc6\Win32_LIB_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\mysql\include;..\common;.;C:\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0400;USE_RUNTIME_EXCEPTIONS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4355;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>wsock32.lib;zlib.lib;mysqlclient.lib;Advapi32.lib;user32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\mysql\lib\opt;C:\zlib-1.2.3\projects\visualc6\Win32_LIB_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\Base64.cpp" />
+    <ClCompile Include="..\common\CachedObjectMgr.cpp" />
+    <ClCompile Include="..\common\crc32.cpp" />
+    <ClCompile Include="..\common\dbcore.cpp" />
+    <ClCompile Include="..\common\DestinyBinDump.cpp" />
+    <ClCompile Include="..\common\DirWalker.cpp" />
+    <ClCompile Include="..\common\EVEDBUtils.cpp" />
+    <ClCompile Include="..\common\EVEMarshal.cpp" />
+    <ClCompile Include="..\common\EVEPktDispatch.cpp" />
+    <ClCompile Include="..\common\EVEPresentation.cpp" />
+    <ClCompile Include="..\common\EVETCPConnection.cpp" />
+    <ClCompile Include="..\common\EVETCPServer.cpp" />
+    <ClCompile Include="..\common\EVEUnmarshal.cpp" />
+    <ClCompile Include="..\common\EVEUtils.cpp" />
+    <ClCompile Include="..\common\EVEZeroCompress.cpp" />
+    <ClCompile Include="..\common\GaMath.cpp" />
+    <ClCompile Include="..\common\GaTypes.cpp" />
+    <ClCompile Include="..\common\gpoint.cpp" />
+    <ClCompile Include="..\common\logsys.cpp" />
+    <ClCompile Include="..\common\misc.cpp" />
+    <ClCompile Include="..\common\MiscFunctions.cpp" />
+    <ClCompile Include="..\common\Mutex.cpp" />
+    <ClCompile Include="..\common\packet_dump.cpp" />
+    <ClCompile Include="..\common\packet_functions.cpp" />
+    <ClCompile Include="..\common\PyDumpVisitor.cpp" />
+    <ClCompile Include="..\common\PyLookupDump.cpp" />
+    <ClCompile Include="..\common\PyPacket.cpp" />
+    <ClCompile Include="..\common\PyRep.cpp" />
+    <ClCompile Include="..\common\PyUtils.cpp" />
+    <ClCompile Include="..\common\PyVisitor.cpp" />
+    <ClCompile Include="..\common\PyXMLGenerator.cpp" />
+    <ClCompile Include="..\common\RowsetReader.cpp" />
+    <ClCompile Include="..\common\sigexcept\sym_engine.cpp" />
+    <ClCompile Include="..\common\StreamPacketizer.cpp" />
+    <ClCompile Include="..\common\TCPConnection.cpp" />
+    <ClCompile Include="..\common\TCPServer.cpp" />
+    <ClCompile Include="..\common\timer.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinystr.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\common\XMLParser.cpp" />
+    <ClCompile Include="..\packets\AccountPkts.cpp" />
+    <ClCompile Include="..\packets\Character.cpp" />
+    <ClCompile Include="..\packets\CorporationPkts.cpp" />
+    <ClCompile Include="..\packets\Crypto.cpp" />
+    <ClCompile Include="..\packets\Destiny.cpp" />
+    <ClCompile Include="..\packets\DogmaIM.cpp" />
+    <ClCompile Include="..\packets\General.cpp" />
+    <ClCompile Include="..\packets\Inventory.cpp" />
+    <ClCompile Include="..\packets\LSCPkts.cpp" />
+    <ClCompile Include="..\packets\Market.cpp" />
+    <ClCompile Include="..\packets\Missions.cpp" />
+    <ClCompile Include="..\packets\ObjectCaching.cpp" />
+    <ClCompile Include="..\packets\Standing2.cpp" />
+    <ClCompile Include="..\packets\Tutorial.cpp" />
+    <ClCompile Include="..\packets\Wallet.cpp" />
+    <ClCompile Include="..\server\account\AccountDB.cpp" />
+    <ClCompile Include="..\server\account\AccountService.cpp" />
+    <ClCompile Include="..\server\account\AuthService.cpp" />
+    <ClCompile Include="..\server\admin\AlertService.cpp" />
+    <ClCompile Include="..\server\admin\AllCommands.cpp" />
+    <ClCompile Include="..\server\admin\CommandDB.cpp" />
+    <ClCompile Include="..\server\admin\CommandDispatcher.cpp" />
+    <ClCompile Include="..\server\admin\GMCommands.cpp" />
+    <ClCompile Include="..\server\admin\PetitionerService.cpp" />
+    <ClCompile Include="..\server\admin\SlashService.cpp" />
+    <ClCompile Include="..\server\BookmarkService.cpp" />
+    <ClCompile Include="..\server\cache\ObjCacheDB.cpp" />
+    <ClCompile Include="..\server\cache\ObjCacheService.cpp" />
+    <ClCompile Include="..\server\character\CharacterDB.cpp" />
+    <ClCompile Include="..\server\character\CharacterService.cpp" />
+    <ClCompile Include="..\server\character\CharMgrService.cpp" />
+    <ClCompile Include="..\server\character\SkillMgrService.cpp" />
+    <ClCompile Include="..\server\chat\LookupService.cpp" />
+    <ClCompile Include="..\server\chat\LSCChannel.cpp" />
+    <ClCompile Include="..\server\chat\LSCDB.cpp" />
+    <ClCompile Include="..\server\chat\LSCService.cpp" />
+    <ClCompile Include="..\server\chat\OnlineStatusService.cpp" />
+    <ClCompile Include="..\server\Client.cpp" />
+    <ClCompile Include="..\server\ClientSession.cpp" />
+    <ClCompile Include="..\server\config\ConfigDB.cpp" />
+    <ClCompile Include="..\server\config\ConfigService.cpp" />
+    <ClCompile Include="..\server\config\LanguageService.cpp" />
+    <ClCompile Include="..\server\corporation\CorpMgrService.cpp" />
+    <ClCompile Include="..\server\corporation\CorporationDB.cpp" />
+    <ClCompile Include="..\server\corporation\CorporationService.cpp" />
+    <ClCompile Include="..\server\corporation\CorpRegistryService.cpp" />
+    <ClCompile Include="..\server\corporation\CorpStationMgrService.cpp" />
+    <ClCompile Include="..\server\dogmaim\DogmaIMDB.cpp" />
+    <ClCompile Include="..\server\dogmaim\DogmaIMService.cpp" />
+    <ClCompile Include="..\server\EntityList.cpp" />
+    <ClCompile Include="..\server\EVEmuServerConfig.cpp" />
+    <ClCompile Include="..\server\inventory\InvBrokerService.cpp" />
+    <ClCompile Include="..\server\inventory\InventoryDB.cpp" />
+    <ClCompile Include="..\server\inventory\InventoryItem.cpp" />
+    <ClCompile Include="..\server\inventory\ItemDB.cpp" />
+    <ClCompile Include="..\server\inventory\ItemFactory.cpp" />
+    <ClCompile Include="..\server\main.cpp" />
+    <ClCompile Include="..\server\map\MapDB.cpp" />
+    <ClCompile Include="..\server\map\MapService.cpp" />
+    <ClCompile Include="..\server\market\BillMgrService.cpp" />
+    <ClCompile Include="..\server\market\MarketDB.cpp" />
+    <ClCompile Include="..\server\market\MarketProxyService.cpp" />
+    <ClCompile Include="..\server\mining\Asteroid.cpp" />
+    <ClCompile Include="..\server\mining\AsteroidBeltManager.cpp" />
+    <ClCompile Include="..\server\mining\MiningCommands.cpp" />
+    <ClCompile Include="..\server\mining\MiningDB.cpp" />
+    <ClCompile Include="..\server\mining\ReprocessingDB.cpp" />
+    <ClCompile Include="..\server\mining\ReprocessingService.cpp" />
+    <ClCompile Include="..\server\missions\Agent.cpp" />
+    <ClCompile Include="..\server\missions\AgentMgrService.cpp" />
+    <ClCompile Include="..\server\missions\MissionDB.cpp" />
+    <ClCompile Include="..\server\missions\MissionMgrService.cpp" />
+    <ClCompile Include="..\server\NPC.cpp" />
+    <ClCompile Include="..\server\npc\NPCAI.cpp" />
+    <ClCompile Include="..\server\PyBoundObject.cpp" />
+    <ClCompile Include="..\server\PyCallable.cpp" />
+    <ClCompile Include="..\server\PyService.cpp" />
+    <ClCompile Include="..\server\PyServiceMgr.cpp" />
+    <ClCompile Include="..\server\ServiceDB.cpp" />
+    <ClCompile Include="..\server\ship\BeyonceService.cpp" />
+    <ClCompile Include="..\server\ship\DestinyManager.cpp" />
+    <ClCompile Include="..\server\ship\InsuranceService.cpp" />
+    <ClCompile Include="..\server\ship\ModuleManager.cpp" />
+    <ClCompile Include="..\server\ship\ShipDB.cpp" />
+    <ClCompile Include="..\server\ship\ShipService.cpp" />
+    <ClCompile Include="..\server\ship\TargetManager.cpp" />
+    <ClCompile Include="..\server\spawn\SpawnDB.cpp" />
+    <ClCompile Include="..\server\spawn\SpawnManager.cpp" />
+    <ClCompile Include="..\server\standing\Standing2Service.cpp" />
+    <ClCompile Include="..\server\standing\StandingDB.cpp" />
+    <ClCompile Include="..\server\station\JumpCloneService.cpp" />
+    <ClCompile Include="..\server\station\StationDB.cpp" />
+    <ClCompile Include="..\server\station\StationService.cpp" />
+    <ClCompile Include="..\server\station\StationSvcService.cpp" />
+    <ClCompile Include="..\server\system\BubbleManager.cpp" />
+    <ClCompile Include="..\server\system\Damage.cpp" />
+    <ClCompile Include="..\server\system\DungeonService.cpp" />
+    <ClCompile Include="..\server\system\KeeperService.cpp" />
+    <ClCompile Include="..\server\system\ScenarioService.cpp" />
+    <ClCompile Include="..\server\system\SystemBubble.cpp" />
+    <ClCompile Include="..\server\system\SystemDB.cpp" />
+    <ClCompile Include="..\server\system\SystemEntities.cpp" />
+    <ClCompile Include="..\server\system\SystemEntity.cpp" />
+    <ClCompile Include="..\server\system\SystemManager.cpp" />
+    <ClCompile Include="..\server\tutorial\TutorialDB.cpp" />
+    <ClCompile Include="..\server\tutorial\TutorialService.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\common\Base64.h" />
+    <ClInclude Include="..\common\CachedObjectMgr.h" />
+    <ClInclude Include="..\common\common.h" />
+    <ClInclude Include="..\common\crc32.h" />
+    <ClInclude Include="..\common\dbcore.h" />
+    <ClInclude Include="..\common\DestinyStructs.h" />
+    <ClInclude Include="..\common\DirWalker.h" />
+    <ClInclude Include="..\common\EVEDBUtils.h" />
+    <ClInclude Include="..\common\EVEMarshal.h" />
+    <ClInclude Include="..\common\EVEMarshalOpcodes.h" />
+    <ClInclude Include="..\common\EVEPktDispatch.h" />
+    <ClInclude Include="..\common\EVEPresentation.h" />
+    <ClInclude Include="..\common\EVETCPConnection.h" />
+    <ClInclude Include="..\common\EVETCPServer.h" />
+    <ClInclude Include="..\common\EVEUnmarshal.h" />
+    <ClInclude Include="..\common\EVEUtils.h" />
+    <ClInclude Include="..\common\EVEVersion.h" />
+    <ClInclude Include="..\common\EVEZeroCompress.h" />
+    <ClInclude Include="..\common\GaMath.h" />
+    <ClInclude Include="..\common\GaPreReqs.h" />
+    <ClInclude Include="..\common\GaTypes.h" />
+    <ClInclude Include="..\common\logsys.h" />
+    <ClInclude Include="..\common\logtypes.h" />
+    <ClInclude Include="..\common\misc.h" />
+    <ClInclude Include="..\common\MiscFunctions.h" />
+    <ClInclude Include="..\common\Mutex.h" />
+    <ClInclude Include="..\common\packet_dump.h" />
+    <ClInclude Include="..\common\packet_functions.h" />
+    <ClInclude Include="..\common\packet_types.h" />
+    <ClInclude Include="..\common\PyDumpVisitor.h" />
+    <ClInclude Include="..\common\PyLookupDump.h" />
+    <ClInclude Include="..\common\PyPacket.h" />
+    <ClInclude Include="..\common\PyRep.h" />
+    <ClInclude Include="..\common\PyUtils.h" />
+    <ClInclude Include="..\common\PyVisitor.h" />
+    <ClInclude Include="..\common\PyXMLGenerator.h" />
+    <ClInclude Include="..\common\queue.h" />
+    <ClInclude Include="..\common\RowsetReader.h" />
+    <ClInclude Include="..\common\RowsetToSQL.h" />
+    <ClInclude Include="..\common\seperator.h" />
+    <ClInclude Include="..\common\StreamPacketizer.h" />
+    <ClInclude Include="..\common\TCPBasicServer.h" />
+    <ClInclude Include="..\common\TCPConnection.h" />
+    <ClInclude Include="..\common\TCPServer.h" />
+    <ClInclude Include="..\common\timer.h" />
+    <ClInclude Include="..\common\types.h" />
+    <ClInclude Include="..\packets\AccountPkts.h" />
+    <ClInclude Include="..\packets\Character.h" />
+    <ClInclude Include="..\packets\CorporationPkts.h" />
+    <ClInclude Include="..\packets\Crypto.h" />
+    <ClInclude Include="..\packets\Destiny.h" />
+    <ClInclude Include="..\packets\DogmaIM.h" />
+    <ClInclude Include="..\packets\General.h" />
+    <ClInclude Include="..\packets\Inventory.h" />
+    <ClInclude Include="..\packets\LSCPkts.h" />
+    <ClInclude Include="..\packets\Market.h" />
+    <ClInclude Include="..\packets\Missions.h" />
+    <ClInclude Include="..\packets\ObjectCaching.h" />
+    <ClInclude Include="..\packets\Standing2.h" />
+    <ClInclude Include="..\packets\Tutorial.h" />
+    <ClInclude Include="..\packets\Wallet.h" />
+    <ClInclude Include="..\server\ClientSession.h" />
+    <ClInclude Include="..\server\EVEmuServerConfig.h" />
+    <ClInclude Include="..\server\EVEmuServerConfig_elements.h" />
+    <ClInclude Include="..\server\inventory\EVEAttributes.h" />
+    <ClInclude Include="..\server\inventory\InventoryItem.h" />
+    <ClInclude Include="..\server\inventory\ItemDB.h" />
+    <ClInclude Include="..\server\inventory\ItemFactory.h" />
+    <ClInclude Include="..\server\market\MarketDB.h" />
+    <ClInclude Include="..\server\market\MarketProxyService.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <XMLPkt Include="..\packets\AccountPkts.xmlp" />
+    <XMLPkt Include="..\packets\Character.xmlp" />
+    <XMLPkt Include="..\packets\CorporationPkts.xmlp" />
+    <XMLPkt Include="..\packets\Crypto.xmlp" />
+    <XMLPkt Include="..\packets\Destiny.xmlp" />
+    <XMLPkt Include="..\packets\DogmaIM.xmlp" />
+    <XMLPkt Include="..\packets\General.xmlp" />
+    <XMLPkt Include="..\packets\Inventory.xmlp" />
+    <XMLPkt Include="..\packets\LSCPkts.xmlp" />
+    <XMLPkt Include="..\packets\Market.xmlp" />
+    <XMLPkt Include="..\packets\Missions.xmlp" />
+    <XMLPkt Include="..\packets\ObjectCaching.xmlp" />
+    <XMLPkt Include="..\packets\Standing2.xmlp" />
+    <XMLPkt Include="..\packets\Tutorial.xmlp" />
+    <XMLPkt Include="..\packets\Wallet.xmlp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="XMLPktGen.vcxproj">
+      <Project>{22cd0d69-a133-45eb-bfa8-407a61e1822a}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="xmlpkt.targets" />
+  </ImportGroup>
+</Project>

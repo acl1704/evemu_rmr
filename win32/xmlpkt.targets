@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+    <AvailableItemName
+      Include="XMLPkt">
+      <Targets>_XMLPkt</Targets>
+    </AvailableItemName>
+  </ItemGroup>
+  <UsingTask
+    TaskName="XMLPkt"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_XMLPkt"
+    BeforeTargets="$(XMLPktBeforeTargets)"
+    AfterTargets="$(XMLPktAfterTargets)"
+    Condition="'@(XMLPkt)' != ''"
+    DependsOnTargets="$(XMLPktDependsOn);ComputeXMLPktOutput"
+    Outputs="%(XMLPkt.Outputs)"
+    Inputs="%(XMLPkt.Identity);%(XMLPkt.AdditionalDependencies);$(MSBuildProjectFile)">
+    <ItemGroup
+      Condition="'@(SelectedFiles)' != ''">
+      <XMLPkt
+        Remove="@(XMLPkt)"
+        Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <XMLPkt_tlog
+        Include="%(XMLPkt.Outputs)"
+        Condition="'%(XMLPkt.Outputs)' != '' and '%(XMLPkt.ExcludedFromBuild)' != 'true'">
+        <Source>@(XMLPkt, '|')</Source>
+      </XMLPkt_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(XMLPkt.ExecutionDescription)" />
+    <WriteLinesToFile
+      Condition="'@(XMLPkt_tlog)' != '' and '%(XMLPkt_tlog.ExcludedFromBuild)' != 'true'"
+      File="$(TLogLocation)$(ProjectName).write.1u.tlog"
+      Lines="^%(XMLPkt_tlog.Source);@(XMLPkt_tlog-&gt;'%(Fullpath)')"
+      Encoding="Unicode" />
+    <XMLPkt
+      Condition="'@(XMLPkt)' != '' and '%(XMLPkt.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(XMLPkt.CommandLineTemplate)"
+      AdditionalOptions="%(XMLPkt.AdditionalOptions)"
+      Inputs="%(XMLPkt.Identity)" />
+  </Target>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+            $(ComputeLinkInputsTargets);
+            ComputeXMLPktOutput;
+          </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+            $(ComputeLibInputsTargets);
+            ComputeXMLPktOutput;
+          </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <Target
+    Name="ComputeXMLPktOutput"
+    Condition="'@(XMLPkt)' != ''">
+    <ItemGroup>
+      <XMLPktDirsToMake
+        Condition="'@(XMLPkt)' != '' and '%(XMLPkt.ExcludedFromBuild)' != 'true'"
+        Include="%(XMLPkt.Outputs)" />
+      <Link
+        Include="%(XMLPktDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <Lib
+        Include="%(XMLPktDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+      <ImpLib
+        Include="%(XMLPktDirsToMake.Identity)"
+        Condition="'%(Extension)'=='.obj' or '%(Extension)'=='.res' or '%(Extension)'=='.rsc' or '%(Extension)'=='.lib'" />
+    </ItemGroup>
+    <MakeDir
+      Directories="@(XMLPktDirsToMake-&gt;'%(RootDir)%(Directory)')" />
+  </Target>
+</Project>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{22CD0D69-A133-45EB-BFA8-407A61E1822A}</ProjectGuid>
+    <RootNamespace>XMLPktGen</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27130.2020</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\_xmlpkt\</OutDir>
+    <IntDir>$(Configuration)\_xmlpkt\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\_xmlpkt\</OutDir>
+    <IntDir>$(Configuration)\_xmlpkt\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\mysql\include;..\common;.;C:\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WIN32_WINNT=0x0400;_NDEBUG;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <BrowseInformation>true</BrowseInformation>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <DisableSpecificWarnings>4244;4355;4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>zlib.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\mysql\lib\debug;C:\zlib-1.2.3\projects\visualc6\Win32_LIB_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\mysql\include;..\common;.;C:\zlib-1.2.3;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>zlib.lib;wsock32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\mysql\lib\opt;C:\zlib-1.2.3\projects\visualc6\Win32_LIB_Release;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\common\Base64.cpp" />
+    <ClCompile Include="..\common\crc32.cpp" />
+    <ClCompile Include="..\common\EVEMarshal.cpp" />
+    <ClCompile Include="..\common\EVEUnmarshal.cpp" />
+    <ClCompile Include="..\common\EVEZeroCompress.cpp" />
+    <ClCompile Include="..\common\logsys.cpp" />
+    <ClCompile Include="..\common\misc.cpp" />
+    <ClCompile Include="..\common\MiscFunctions.cpp" />
+    <ClCompile Include="..\common\packet_functions.cpp" />
+    <ClCompile Include="..\common\PyDumpVisitor.cpp" />
+    <ClCompile Include="..\common\PyPacket.cpp" />
+    <ClCompile Include="..\common\PyRep.cpp" />
+    <ClCompile Include="..\common\PyUtils.cpp" />
+    <ClCompile Include="..\common\PyVisitor.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinystr.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="..\common\tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="..\common\XMLParser.cpp" />
+    <ClCompile Include="..\xmlpktgen\CloneGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\ConstructGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\DecodeGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\DestructGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\DumpGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\EncodeGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\Generator.cpp" />
+    <ClCompile Include="..\xmlpktgen\HeaderGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\ImplGenerator.cpp" />
+    <ClCompile Include="..\xmlpktgen\main.cpp" />
+    <ClCompile Include="..\xmlpktgen\XMLPacketGen.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\xmlpktgen\CloneGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\ConstructGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\DecodeGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\DestructGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\DumpGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\EncodeGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\Generator.h" />
+    <ClInclude Include="..\xmlpktgen\HeaderGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\ImplGenerator.h" />
+    <ClInclude Include="..\xmlpktgen\XMLPacketGen.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(XMLPktBeforeTargets)' == '' and '$(XMLPktAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <XMLPktBeforeTargets>Midl</XMLPktBeforeTargets>
+    <XMLPktAfterTargets>CustomBuild</XMLPktAfterTargets>
+  </PropertyGroup>
+  <PropertyGroup>
+    <XMLPktDependsOn
+      Condition="'$(ConfigurationType)' != 'Makefile'">_SelectedFiles;$(XMLPktDependsOn)</XMLPktDependsOn>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <XMLPkt>
+      <CommandLineTemplate>$(OutDir)_xmlpkt\XMLPktGen.exe [inputs]</CommandLineTemplate>
+      <Outputs>%(Filename).h</Outputs>
+      <ExecutionDescription>Generating packet processors from XML: %(Filename)</ExecutionDescription>
+      <ShowOnlyRuleProperties>false</ShowOnlyRuleProperties>
+      <AdditionalDependencies>$(OutDir)_xmlpkt\XMLPktGen.exe</AdditionalDependencies>
+    </XMLPkt>
+  </ItemDefinitionGroup>
+</Project>
