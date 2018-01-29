@@ -20,6 +20,8 @@ details.  */
 
 #define HANDLE_SEGV 1
 
+int fake;
+
 #define SIGNAL_HANDLER(_name)	\
 static void _Jv_##_name (int, siginfo_t *, void *_p)
 
@@ -72,7 +74,19 @@ do								\
     act.k_sa_restorer = restore_rt;				\
     syscall (SYS_rt_sigaction, SIGSEGV, &act, NULL, _NSIG / 8);	\
   }								\
-while (0)  
+while (0)
+
+#define INIT_ILL						\
+do								\
+  {								\
+    struct kernel_sigaction act;				\
+    act.k_sa_sigaction = _Jv_catch_ill;				\
+    sigemptyset (&act.k_sa_mask);				\
+    act.k_sa_flags = SA_NODEFER;				\
+    act.k_sa_restorer = restore_rt;				\
+    syscall (SYS_rt_sigaction, SIGILL, &act, NULL);		\
+  }								\
+while (0)
 
 /* We use syscall(SYS_rt_sigaction) in INIT_SEGV instead of
  * sigaction() because on some systems the pthreads wrappers for

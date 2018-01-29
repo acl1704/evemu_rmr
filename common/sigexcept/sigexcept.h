@@ -237,7 +237,7 @@ const char *const sigexcept_exception::TypeStrings[4] = {
 			MAKE_THROW_FRAME( type ); \
 			void *backtrace_buffer[MAX_BACKTRACE_FRAMES]; \
 			int frame_count = backtrace(backtrace_buffer, MAX_BACKTRACE_FRAMES); \
-			void **_p2 = (void **)&_dummy; \
+			void **_p2 = (void **)&fake; \
 			volatile struct sigcontext_struct *_regs = (struct sigcontext_struct *)++_p2; \
 			backtrace_buffer[1] = (void *)(SIGEXCEPT_LAST_INSTRUCTION); \
 			int r; \
