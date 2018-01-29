@@ -25,7 +25,7 @@
 
 
 #include <string>
-#include "..\packets\CorporationPkts.h"
+#include "../packets/CorporationPkts.h"
 #include "../common/PyRep.h"
 
 

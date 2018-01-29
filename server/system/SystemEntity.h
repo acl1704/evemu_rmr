@@ -20,7 +20,7 @@
 
 #include "../ship/TargetManager.h"
 #include <vector>
-
+#include "../../common/common.h"
 
 class PyRepDict;
 class PyRepList;

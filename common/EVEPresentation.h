@@ -24,6 +24,7 @@ class PyRep;
 class VersionExchange;
 
 #include "EVETCPConnection.h"
+#include "common.h"
 
 static const uint32 EVESocketMaxNumberOfBytes = 1000000; //this is a limit hard coded in the eve client! (NetClient.dll)
 

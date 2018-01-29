@@ -67,6 +67,10 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <cstring>
+#include <cstddef>
+#include <climits>
+#include <string>
 
 #include "./types.h"
 #include "./unix.h"

@@ -19,6 +19,7 @@
 
 #include <vector>
 #include "types.h"
+#include "common.h"
 
 extern void PackZeroCompressed(const byte *in_buf, uint32 in_length, std::vector<byte> &out_buf);
 extern void UnpackZeroCompressed(const byte *in_buf, uint32 in_length, std::vector<byte> &buffer);
