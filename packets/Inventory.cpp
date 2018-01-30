@@ -25,7 +25,7 @@
 
 
 #include <string>
-#include "../packets/Inventory.h"
+#include "..\packets\Inventory.h"
 #include "../common/PyRep.h"
 
 

@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2024
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "zlib", "zlib.vcxproj", "{5D31295D-85BF-4CC3-817A-8D4724FF724A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		DLL ASM Debug|x86 = DLL ASM Debug|x86
+		DLL ASM Release|x86 = DLL ASM Release|x86
+		DLL Debug|x86 = DLL Debug|x86
+		DLL Release|x86 = DLL Release|x86
+		LIB ASM Debug|x86 = LIB ASM Debug|x86
+		LIB ASM Release|x86 = LIB ASM Release|x86
+		LIB Debug|x86 = LIB Debug|x86
+		LIB Release|x86 = LIB Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL ASM Debug|x86.ActiveCfg = DLL ASM Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL ASM Debug|x86.Build.0 = DLL ASM Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL ASM Release|x86.ActiveCfg = DLL ASM Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL ASM Release|x86.Build.0 = DLL ASM Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL Debug|x86.ActiveCfg = DLL Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL Debug|x86.Build.0 = DLL Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL Release|x86.ActiveCfg = DLL Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.DLL Release|x86.Build.0 = DLL Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB ASM Debug|x86.ActiveCfg = LIB ASM Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB ASM Debug|x86.Build.0 = LIB ASM Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB ASM Release|x86.ActiveCfg = LIB ASM Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB ASM Release|x86.Build.0 = LIB ASM Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB Debug|x86.ActiveCfg = LIB Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB Debug|x86.Build.0 = LIB Debug|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB Release|x86.ActiveCfg = LIB Release|Win32
+		{5D31295D-85BF-4CC3-817A-8D4724FF724A}.LIB Release|x86.Build.0 = LIB Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CF6B230-B51B-4910-AEB8-9D04C803DC34}
+	EndGlobalSection
+EndGlobal
