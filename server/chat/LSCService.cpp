@@ -500,6 +500,15 @@ bool LSCService::ExecuteCommand(Client *from, const char *msg) {
 	return(m_commandDispatch->Execute(from, msg));
 }
 
+bool LSCService::CreateChannel(const LSCChannelDesc &desc) {
+	if(m_channels.find(desc) != m_channels.end()) {
+		return(true); //already exists.
+	}
+	LSCChannel *chan = new LSCChannel(this, desc, desc.number, NULL, NULL, NULL, true, NULL, true, true, false, 15);
+	m_channels[desc] = chan;
+	return(true);
+}
+
 /*
 void LSCService::_LoadChannel(const LSCChannelDesc &cid) {
 	//eventually we might want to do something more useful here...
@@ -562,9 +571,9 @@ OnLSC_SenderInfo *LSCService::_MakeSenderInfo(Client *from) {
 	return(sender);
 }
 
-LSCChannelDesc::LSCChannelDesc()
-: type(normal),
-  number(0)
+LSCChannelDesc::LSCChannelDesc(uint32 num, Type t)
+: type(t),
+  number(num)
 {
 }
 

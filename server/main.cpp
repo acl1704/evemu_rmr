@@ -188,7 +188,7 @@ int main(int argc, char *argv[]) {
 	services.RegisterService(new CorpRegistryService(&services, &db));
 	services.RegisterService(new DogmaIMService(&services, &db));
 	services.RegisterService(new InvBrokerService(&services, &db));
-	services.RegisterService(new LSCService(&services, &db, &command_dispatcher));
+	services.RegisterService(services.lsc_service = new LSCService(&services, &db, &command_dispatcher));
 	services.RegisterService(new LookupService(&services, &db));
 	services.RegisterService(new ShipService(&services, &db));
 	services.RegisterService(new InsuranceService(&services, &db));

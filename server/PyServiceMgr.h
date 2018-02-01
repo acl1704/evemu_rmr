@@ -40,6 +40,7 @@ class EntityList;
 class ObjCacheService;
 class DBcore;
 class ItemFactory;
+class LSCService;
 
 class PyServiceMgr {
 public:
@@ -70,6 +71,11 @@ public:
 
 	ItemFactory *const item_factory;	//here for anybody to use. we do not own this.
 	EntityList *const entity_list;	//here for anybody to use. we do not own this.
+
+	//Area to access services by name. This isnt ideal, but it avoids casting.
+	//these may be NULL during service init, but should never be after that.
+	//we do not own these pointers (we do in their PyService * form though)
+	LSCService *lsc_service;
 	
 protected:
 	std::set<PyService *> m_services;	//we own these pointers.

@@ -59,19 +59,21 @@ class OnLSC_SenderInfo;
 //a little util class to represent complex channel IDs
 class LSCChannelDesc {
 public:
-	LSCChannelDesc();
-	
-	PyRep *Encode() const;
-	bool Decode(const PyRep *from);
-	std::string ToString() const;
-
-	enum {
+	typedef enum {
 		normal = 0,
 		corp = 1,
 		solarsystem = 2,
 		region = 3,
 		constellation = 4
-	} type;
+	} Type;
+
+	LSCChannelDesc(uint32 num=0, Type t=normal);
+	
+	PyRep *Encode() const;
+	bool Decode(const PyRep *from);
+	std::string ToString() const;
+
+	Type type;
 	uint32 number;
 
 	const char *GetTypeString() const;
@@ -95,6 +97,8 @@ class LSCService : public PyService {
 public:
 	LSCService(PyServiceMgr *mgr, DBcore *db, CommandDispatcher *cd);
 	virtual ~LSCService();
+
+	bool CreateChannel(const LSCChannelDesc &desc);
 
 	bool ExecuteCommand(Client *from, const char *msg);
 	

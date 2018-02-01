@@ -1,12 +1,16 @@
-*** 30/01/2018 ***
+*** 02/01/2018 ***
+- Apply Zhur's patch for newly created characters failing to enter the game.
+- See: https://web.archive.org/web/20080501122936/http://evemu.sourceforge.net:80/forums/viewtopic.php?t=548&sid=0b4339b065545856a456ba483714942b
+
+*** 01/30/2018 ***
 - Clean up VS build a little
 - Fix VS Debug build
 
-*** 29/01/2018 ***
+*** 01/29/2018 ***
 - Building + working on Linux (i386)
 - Building but not functioning on Linux (x86_64)
 
-*** 26/01/2018 ***
+*** 01/26/2018 ***
 - Updated to support building with Visual Studio 2017.
 - Linux build not working. While it can be compiled if you fix the errors, it seems to send junk to the client.
 - EVETool is untested.

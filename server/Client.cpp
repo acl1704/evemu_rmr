@@ -1275,6 +1275,9 @@ void Client::_postMove(_MoveState type, uint32 wait_ms) {
 }
 
 void Client::InitialEnterGame() {
+	//create their channel:
+	m_services->lsc_service->CreateChannel(LSCChannelDesc(GetCharacterID()));
+
 	m_services->GetServiceDB()->
 		LoadCorporationMemberInfo(GetCharacterID(), m_corpstate);
 

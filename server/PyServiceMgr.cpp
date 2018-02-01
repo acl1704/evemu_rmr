@@ -69,6 +69,7 @@ PyServiceMgr::PyServiceMgr(
 )
 : item_factory(ifactory),
   entity_list(elist),
+  lsc_service(NULL),
   m_cache(new ObjCacheService(this, db, CacheDirectory)),
   m_globalNodeID(global_node_ID),
   m_nextBindID(100),
